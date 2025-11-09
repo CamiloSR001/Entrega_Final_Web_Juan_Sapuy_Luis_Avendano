@@ -1,0 +1,235 @@
+.auth-wrapper {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  margin-bottom: -200px;
+  background: radial-gradient(circle at top left, #1d4ed8, #0f172a 60%);
+}
+
+.auth-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.25fr) minmax(320px, 1fr);
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 40px 60px rgba(15, 23, 42, 0.4);
+  color: #e2e8f0;
+  max-width: 960px;
+  width: 100%;
+}
+
+.auth-visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100%;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.auth-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.65), rgba(30, 64, 175, 0.15));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.auth-visual::before {
+  content: "";
+  position: absolute;
+  inset: -35% -25%;
+  background: radial-gradient(circle at center, rgba(96, 165, 250, 0.35), transparent 65%);
+  opacity: 0.55;
+  animation: visualGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.auth-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+
+.auth-visual:hover img {
+  transform: scale(1.12);
+}
+
+.auth-visual--login::after {
+  background: linear-gradient(150deg, rgba(15, 23, 42, 0.55), rgba(37, 99, 235, 0.35));
+}
+
+.auth-visual--register::after {
+  background: linear-gradient(150deg, rgba(15, 23, 42, 0.6), rgba(6, 95, 70, 0.35));
+}
+
+@keyframes visualGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.68;
+  }
+}
+
+.auth-form {
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.auth-form h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.auth-description {
+  margin: -8px 0 12px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.auth-field span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.auth-field input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #f8fafc;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+.auth-password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-password input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.auth-toggle {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(148, 163, 184, 0.15);
+  color: #cbd5f5;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.auth-toggle:hover {
+  background: rgba(96, 165, 250, 0.35);
+  color: #f8fafc;
+}
+
+.auth-error {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(248, 113, 113, 0.15);
+  color: #fecaca;
+  font-size: 0.9rem;
+}
+
+.auth-submit {
+  margin-top: 4px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: #f8fafc;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(79, 70, 229, 0.25);
+}
+
+.auth-footer {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.auth-footer a {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  color: #f8fafc;
+}
+
+@media (max-width: 900px) {
+  .auth-card {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-card {
+    border-radius: 22px;
+  }
+
+  .auth-form {
+    padding: 36px 24px;
+  }
+
+  .auth-visual {
+    min-height: 220px;
+  }
+}
+

@@ -1,0 +1,13 @@
+@import "../Login/Login.css";
+
+.auth-visual--register::before {
+  background: radial-gradient(circle at 30% 30%, rgba(45, 212, 191, 0.4), transparent 65%);
+}
+
+.auth-wrapper {
+  min-height: 96vh;
+  margin-bottom: -80px;
+}
+
+
+
