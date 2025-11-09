@@ -8,14 +8,13 @@ import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter> {}
+    <HashRouter>
       <AuthProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <App />
         </ThemeProvider>
       </AuthProvider>
-    </HashRouter> {}
+    </HashRouter>
   </React.StrictMode>
 );
-
