@@ -70,6 +70,7 @@
     opacity: 1;
     transform: translateY(0) translateX(0) scale(1);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-120%) translateX(20%) scale(0.95);
@@ -195,6 +196,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -311,6 +313,7 @@
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -325,6 +328,12 @@
   .news-carousel__controls {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .news-carousel__content {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 }
 
@@ -345,4 +354,3 @@
     padding: 10px 14px;
   }
 }
-
