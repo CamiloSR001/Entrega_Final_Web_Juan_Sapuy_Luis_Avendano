@@ -354,3 +354,21 @@
     padding: 10px 14px;
   }
 }
+
+@media (max-width: 1270px) {
+  .news-carousel {
+    padding: 32px;
+    gap: 28px;
+  }
+
+  .news-carousel__title {
+    font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+  }
+
+  .news-carousel__content {
+    gap: 14px;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+}
