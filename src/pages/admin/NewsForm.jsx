@@ -28,6 +28,34 @@ import {
 } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 
+// 🎨 Estilos de los campos de formulario
+const fieldStyles = {
+  mb: 2,
+  "& .MuiInputBase-root": {
+    backgroundColor: "rgba(15,23,42,0.55)",
+    borderRadius: 2,
+    color: "#f8fafc",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(148,163,184,0.35)",
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(148,163,184,0.55)",
+  },
+  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(59,130,246,0.65)",
+  },
+  "& .MuiInputLabel-root": {
+    color: "rgba(226,232,240,0.78)",
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#facc15",
+  },
+  "& .MuiSelect-icon": {
+    color: "#f8fafc",
+  },
+};
+
 export default function NewsForm() {
   const { id } = useParams();
   const isEdit = Boolean(id);
@@ -264,12 +292,12 @@ export default function NewsForm() {
 
   return (
     <Box sx={{ maxWidth: 720, mx: "auto", mt: 4 }}>
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h5" gutterBottom sx={{ color: "#f8fafc" }}>
         {isEdit ? "Editar noticia" : "Crear nueva noticia"}
       </Typography>
 
       {loading ? (
-        <Typography>Cargando información…</Typography>
+        <Typography color="#f8fafc">Cargando información…</Typography>
       ) : (
         <form onSubmit={handleSubmit}>
           <TextField
@@ -278,7 +306,7 @@ export default function NewsForm() {
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={fieldStyles}
           />
 
           <TextField
@@ -286,10 +314,10 @@ export default function NewsForm() {
             fullWidth
             value={subtitle}
             onChange={(e) => setSubtitle(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={fieldStyles}
           />
 
-          <FormControl fullWidth sx={{ mb: 2 }}>
+          <FormControl fullWidth sx={fieldStyles}>
             <InputLabel>Categoría</InputLabel>
             <Select
               value={categoryId}
@@ -313,11 +341,11 @@ export default function NewsForm() {
             required
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={fieldStyles}
           />
 
           <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-            <Button variant="contained" component="label">
+            <Button variant="contained" component="label" color="primary">
               {isEdit ? "Cambiar imagen" : "Subir imagen"}
               <input
                 type="file"
@@ -327,7 +355,7 @@ export default function NewsForm() {
               />
             </Button>
             {(existingImage || imageFile) && (
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{ color: "#f8fafc" }}>
                 {imageFile ? imageFile.name : "Actualmente: imagen cargada"}
               </Typography>
             )}
@@ -338,7 +366,13 @@ export default function NewsForm() {
               component="img"
               src={imageFile ? URL.createObjectURL(imageFile) : existingImage}
               alt="Vista previa"
-              sx={{ width: "100%", borderRadius: 2, mb: 2, objectFit: "cover", maxHeight: 320 }}
+              sx={{
+                width: "100%",
+                borderRadius: 2,
+                mb: 2,
+                objectFit: "cover",
+                maxHeight: 320,
+              }}
             />
           )}
 
