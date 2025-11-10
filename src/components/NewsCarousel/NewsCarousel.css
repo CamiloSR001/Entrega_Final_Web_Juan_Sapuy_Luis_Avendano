@@ -158,10 +158,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-height: clamp(140px, 32vw, 220px);
-  overflow-y: auto;
-  padding-right: 6px;
   align-items: center;
+  justify-content: center;
+  padding-right: 0;
 }
 
 .news-carousel__body::-webkit-scrollbar {

@@ -132,15 +132,8 @@ function NewsCarousel({ items = [], autoPlay = true, interval = 5000 }) {
         </div>
 
         <h2 className="news-carousel__title">{active.title}</h2>
-        {active.subtitle && <p className="news-carousel__subtitle">{active.subtitle}</p>}
 
         <div className="news-carousel__body">
-          <span className="news-carousel__body-label">Resumen</span>
-          <p className="news-carousel__excerpt">
-            {active.content?.slice(0, 180)}
-            {active.content && active.content.length > 180 ? "…" : ""}
-          </p>
-
           <Link to={`/noticia/${active.id}`} className="news-carousel__cta">
             Leer noticia completa
           </Link>
